@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0" id="dk-pay4it-appswitching" version="0.0.1">
+	<name>AppSwitching implementation</name>
+	<engines>
+		<engine name="cordova" version=">=6.4.0" />
+	</engines>
+	<asset src="www/AppSwitching.js" target="js/AppSwitching.js" />
+	<js-module src="www/AppSwitching.js" name="AppSwitching">
+		<clobbers target="AppSwitching" />
+	</js-module>
+	<platform name="android">
+		<config-file target="res/xml/config.xml" parent="/*">
+			<feature name="AppSwitching">
+				<param name="android-package" value="dk.pay4it.AppSwitching" />
+			</feature>
+		</config-file>
+		<source-file src="src/android/AppSwitching.java" target-dir="src/dk/pay4it/appswitching/" />
+	</platform>
+	<platform name="ios">
+			<config-file target="config.xml" parent="/*">
+				<feature name="AppSwitching">
+						<param name="ios-package" value="AppSwitching" />
+				</feature>
+			</config-file>
+			<header-file src="src/ios/AppSwitching.h" />
+			<source-file src="src/ios/AppSwitching.m" />
+	</platform>
+</plugin>
